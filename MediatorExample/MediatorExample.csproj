@@ -26,7 +26,10 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="NovaPasta\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mediator.Core\Mediator.Core.csproj" />
   </ItemGroup>
 
 
