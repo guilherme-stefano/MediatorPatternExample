@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Mediator.Core.Commands
 {
-    public class Command : Message, IRequest<ValidationResult>
+    public abstract class Command : Message, IRequest<ValidationResult>
     {
         public DateTime TimeStamp { get; private set ; }
 
@@ -17,9 +17,6 @@ namespace Mediator.Core.Commands
             TimeStamp = DateTime.Now;
         }
 
-        public virtual bool IsValid()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract bool IsValid();
     }
 }

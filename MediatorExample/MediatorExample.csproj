@@ -25,10 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Mediator.Core\Mediator.Core.csproj" />
   </ItemGroup>
 

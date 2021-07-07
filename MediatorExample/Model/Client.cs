@@ -8,12 +8,21 @@ namespace MediatorExample.Model
 {
     public class Client : IAggregateRoot
     {
-        public  int Id { get; set; }
+
+        public  Guid Id { get; set; }
 
         public string Name { get; set; }
 
         public string SecondName { get; set; }
 
         public string Email { get; set; }
+
+        protected Client() { }
+        public Client(Guid id, string name, string email)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+        }
     }
 }

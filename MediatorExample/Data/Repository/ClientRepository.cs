@@ -33,5 +33,20 @@ namespace MediatorExample.Data.Repository
         {
             _context.Dispose();
         }
+
+        public async Task<Client> GetById(Guid id)
+        {
+            return await _context.Clients.FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public async Task<Client> GetByMail(string email)
+        {
+            return await _context.Clients.FirstOrDefaultAsync(c => c.Email == email);
+        }
+
+        public async Task<bool> SaveChanges()
+        {
+            return await this.UnitOfWork.Commit();
+        }
     }
 }
