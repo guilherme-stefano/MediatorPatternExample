@@ -23,7 +23,7 @@ namespace MediatorExample.Validation
 
             RuleFor(c => c.Email)
                 .Must(ValidMail)
-                .WithMessage("Name is Required");
+                .WithMessage("Invalid email");
         }
 
         protected static bool ValidMail(string email)

@@ -12,13 +12,15 @@ namespace MediatorExample.Commands
 
         public Guid Id { get; private set; }
         public  string Name { get; private set; }
+        public string SecondName { get; private set; }
         public string Email { get; private set; }
 
-        public RegisterClientCommand(Guid id, string name, string email)
+        public RegisterClientCommand(Guid id, string name, string secondName, string email)
         {
             AggregatedId = id;
             Id = id;
             Name = name;
+            SecondName = secondName;
             Email = email;
         }
 

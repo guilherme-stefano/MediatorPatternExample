@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MediatorExample.Validation
+namespace MediatorExample.Commands
 {
     public class ClientCommandHandler : IRequestHandler<RegisterClientCommand, ValidationResult>
     {
@@ -26,7 +26,7 @@ namespace MediatorExample.Validation
         {
             if (!request.IsValid()) return request.ValidationResult;
 
-            var client = new Client(request.Id, request.Name, request.Email);
+            var client = new Client(request.Id, request.Name, request.SecondName, request.Email);
 
             var emailClient = await _clientRepository.GetByMail(request.Email);
 

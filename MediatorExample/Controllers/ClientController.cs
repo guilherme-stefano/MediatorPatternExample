@@ -1,5 +1,6 @@
 ﻿using Mediator.Core.Mediator;
 using MediatorExample.Commands;
+using MediatorExample.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,9 @@ namespace MediatorExample.Controllers
         }
 
         [HttpPost("client")]
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post(ClientRequest client)
         {
-            var result = await _mediatorHandler.SendCommand(new RegisterClientCommand(Guid.NewGuid(), "test", "test@test.com"));
+            var result = await _mediatorHandler.SendCommand(new RegisterClientCommand(Guid.NewGuid(), client.Name, client.SecondName, client.Email));
             return CustomResponse(result);
         }
     }

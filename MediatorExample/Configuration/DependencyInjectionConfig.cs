@@ -2,7 +2,8 @@
 using Mediator.Core.Mediator;
 using MediatorExample.Commands;
 using MediatorExample.Data;
-using MediatorExample.Validation;
+using MediatorExample.Data.Interfaces;
+using MediatorExample.Data.Repository;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -18,6 +19,7 @@ namespace MediatorExample.Configuration
         {
             services.AddScoped<IMediatorHandler, MediatorHandler>();
             services.AddScoped<IRequestHandler<RegisterClientCommand, ValidationResult>, ClientCommandHandler>();
+            services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<Context>();
         }
     }

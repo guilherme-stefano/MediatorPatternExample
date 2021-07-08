@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatorExample.Configuration;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,13 +36,14 @@ namespace MediatorExample
             services.AddApiConfiguration(Configuration);
             services.AddMediatR(typeof(Startup));
             services.AddSwaggerConfiguration();
+            services.RegisterServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwaggerConfiguration();
             app.UseApiConfiguration(env);
-
-            app.UseSwagger();
+           
         }
     }
 }

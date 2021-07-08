@@ -18,10 +18,11 @@ namespace MediatorExample.Model
         public string Email { get; set; }
 
         protected Client() { }
-        public Client(Guid id, string name, string email)
+        public Client(Guid id, string name, string secondName, string email)
         {
             Id = id;
             Name = name;
+            SecondName = secondName;
             Email = email;
         }
     }
